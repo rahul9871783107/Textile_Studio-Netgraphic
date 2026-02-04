@@ -12,7 +12,7 @@
  * @param ms - The debounce delay in milliseconds
  * @returns A debounced version of the function
  */
-export function debounce<T extends (...args: unknown[]) => void>(
+export function debounce<T extends (...args: any[]) => void>(
     fn: T,
     ms: number
 ): (...args: Parameters<T>) => void {

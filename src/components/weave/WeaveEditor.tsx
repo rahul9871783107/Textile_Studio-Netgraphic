@@ -107,8 +107,8 @@ function TieUpGrid({
 
 export default function WeaveEditor({ project }: { project: ProjectRow }) {
     // Initialize model from project or create default
-    const [model, setModel] = useState<WeaveModel>(() => {
-        const saved = project.editorState?.weaveModel;
+    const [model, _setModel] = useState<WeaveModel>(() => {
+        const saved = project.editorState?.weaveModel as any;
         if (saved) {
             // Restore Uint8Arrays from plain arrays (IndexedDB serialization)
             return {
@@ -120,7 +120,7 @@ export default function WeaveEditor({ project }: { project: ProjectRow }) {
                 repeat: saved.repeat ?? { warp: 1, weft: 1 },
                 symmetry: saved.symmetry ?? { warpMirror: false, weftMirror: false },
                 loom: saved.loom ?? { maxHarness: 16, maxTreadle: 16, maxWarp: 4096, maxWeft: 4096 },
-            };
+            } as WeaveModel;
         }
         return createDefaultWeaveModel();
     });

@@ -17,7 +17,7 @@ export async function mergeColorInImage(params: {
     const { reducedLayerDataUrl, fromHex, toHex } = params;
 
     const imageData = await dataUrlToImageData(reducedLayerDataUrl);
-    const { width, height, data } = imageData;
+    const { data } = imageData;
 
     const from = hexToRgb(fromHex);
     const to = hexToRgb(toHex);

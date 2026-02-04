@@ -19,8 +19,8 @@ const STRUCTURE_COLORS = [
 
 export default function JacquardEditor({ project }: { project: ProjectRow }) {
     // Initialize model from project or create default
-    const [model, setModel] = useState<JacquardModel>(() => {
-        const saved = project.editorState?.jacquardModel;
+    const [model, _setModel] = useState<JacquardModel>(() => {
+        const saved = project.editorState?.jacquardModel as any;
         if (saved) {
             // Restore Uint8Array/Uint16Array from plain arrays
             return {
@@ -32,7 +32,7 @@ export default function JacquardEditor({ project }: { project: ProjectRow }) {
                     treadling: new Uint8Array(s.treadling),
                     tieUp: new Uint8Array(s.tieUp),
                 })),
-            };
+            } as JacquardModel;
         }
         return createDefaultJacquardModel();
     });

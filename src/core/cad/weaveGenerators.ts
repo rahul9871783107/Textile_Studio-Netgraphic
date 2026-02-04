@@ -67,7 +67,7 @@ export function applyBasket(model: WeaveModel): void {
  * Threading reverses direction creating V shapes
  */
 export function applyHerringbone(model: WeaveModel): void {
-    const { warpCount, harnessCount, treadleCount } = model;
+    const { warpCount, harnessCount } = model;
 
     // Point threading - goes up then down
     const pointWidth = harnessCount * 2 - 2;

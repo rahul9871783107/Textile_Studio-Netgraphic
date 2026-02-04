@@ -113,7 +113,7 @@ export async function exportRepeatSheetPNG({
     downloadDataUrl(dataUrl, `${state.projectName}-repeat-${grid}x${grid}-${dpi}dpi.png`);
 }
 
-export async function exportColorwaySheetPNG({ dpi, r: _r, c }: { dpi: number; r: number; c: number }) {
+export async function exportColorwaySheetPNG({ dpi: _dpi, r: _r, c }: { dpi: number; r: number; c: number }) {
     const state = useEditorStore.getState();
     const colorways = state.colorways;
     // const palettes = state.palettes; // unused

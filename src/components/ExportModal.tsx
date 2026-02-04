@@ -160,7 +160,7 @@ export default function ExportModal({
                                     await exportSeparationPlatesZip({
                                         projectName: s.projectName,
                                         reducedLayerDataUrl: selected.src,
-                                        reduction: selected.reductionMeta,
+                                        reduction: selected.reductionMeta!,
                                         addRegistrationMarks: true,
                                     });
                                 }, "Screen plates exported successfully!");

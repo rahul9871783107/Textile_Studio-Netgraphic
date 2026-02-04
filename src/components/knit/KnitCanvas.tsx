@@ -11,7 +11,7 @@ interface KnitCanvasProps {
 export default function KnitCanvas({
     model,
     cell = 10,
-    activeStitch,
+    activeStitch: _activeStitch,
     onCellClick,
 }: KnitCanvasProps) {
     const ref = useRef<HTMLCanvasElement>(null);

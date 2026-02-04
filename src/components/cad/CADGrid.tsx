@@ -5,7 +5,7 @@ type Props = {
     model: {
         width: number;
         height: number;
-        grid: Uint16Array;
+        grid: Uint8Array | Uint16Array;
         palette?: string[];
     };
     cellSize?: number;

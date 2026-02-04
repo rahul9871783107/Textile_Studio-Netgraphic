@@ -231,8 +231,8 @@ function reduceColorsKMeans(
 function processLargeExport(
     id: string,
     imageData: ImageData,
-    targetWidth: number,
-    targetHeight: number
+    _targetWidth: number,
+    _targetHeight: number
 ): ImageData {
     sendProgress(id, 0, "Processing large export...");
 

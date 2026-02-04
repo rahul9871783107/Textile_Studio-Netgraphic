@@ -1,4 +1,4 @@
-import { useMemo, useRef, useEffect, useState, useCallback } from "react";
+import { useMemo, useRef, useEffect, useState } from "react";
 import { Stage, Layer as KonvaLayer, Rect, Text, Image as KonvaImage, Transformer, Group } from "react-konva";
 import type { Stage as StageType } from "konva/lib/Stage";
 import type { Transformer as TransformerType } from "konva/lib/shapes/Transformer";

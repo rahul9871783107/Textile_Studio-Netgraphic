@@ -269,7 +269,7 @@ export async function getProjectImageStats(projectId: string): Promise<{
  */
 export async function resolveImageSource(
     src: string,
-    forExport: boolean = false
+    _forExport: boolean = false
 ): Promise<string> {
     // Check if this is a blob ID reference
     if (src.startsWith("blobref:")) {

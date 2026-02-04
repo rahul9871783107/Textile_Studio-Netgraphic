@@ -78,6 +78,7 @@ export type ProjectEditorState = {
     // CAD module state (Prompt 11+)
     weaveModel?: unknown;      // WeaveModel for weave projects
     jacquardModel?: unknown;   // JacquardModel for jacquard projects
+    model?: unknown;           // Generic model for knit/tuft projects
 };
 
 // ============================================================================

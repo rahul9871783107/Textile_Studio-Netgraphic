@@ -46,6 +46,10 @@ export default function App() {
     const [exportOpen, setExportOpen] = useState(false);
     const [isSavingManual, setIsSavingManual] = useState(false);
 
+    // Mobile menu state
+    const [showMobileMenu, setShowMobileMenu] = useState(false);
+    const [mobilePanel, setMobilePanel] = useState<'projects' | 'controls' | null>(null);
+
     // Autosave state for UI indicator
     const isSaving = useAutosaveStore((s) => s.isSaving);
     const autosaveError = useAutosaveStore((s) => s.lastError);
@@ -153,7 +157,30 @@ export default function App() {
                     <button className="btn btnGhost" onClick={() => setExportOpen(true)}>
                         Export
                     </button>
+
+                    {/* Mobile menu button */}
+                    <button
+                        className="mobileMenuBtn"
+                        onClick={() => setShowMobileMenu(!showMobileMenu)}
+                    >
+                        ☰
+                    </button>
                 </div>
+
+                {/* Mobile dropdown menu */}
+                {showMobileMenu && (
+                    <div className="mobileMenu">
+                        <button onClick={() => { setMobilePanel('projects'); setShowMobileMenu(false); }}>
+                            Projects
+                        </button>
+                        <button onClick={() => { setMobilePanel('controls'); setShowMobileMenu(false); }}>
+                            Controls
+                        </button>
+                        <button onClick={() => { setMobilePanel(null); setShowMobileMenu(false); }}>
+                            Canvas
+                        </button>
+                    </div>
+                )}
             </header>
 
             <div className="layout">
@@ -225,6 +252,37 @@ export default function App() {
             <ExportModal open={exportOpen} onClose={() => setExportOpen(false)} />
             <ProcessingIndicator />
             <ToastContainer />
+
+            {/* Mobile panel overlay */}
+            {mobilePanel && (
+                <div className="mobileOverlay">
+                    <button className="mobileCloseBtn" onClick={() => setMobilePanel(null)}>✕</button>
+                    {mobilePanel === 'projects' && (
+                        <div className="mobileOverlayContent">
+                            <h3 className="mobileOverlayTitle">Projects</h3>
+                            <ProjectList />
+                        </div>
+                    )}
+                    {mobilePanel === 'controls' && (
+                        <div className="mobileOverlayContent">
+                            <h3 className="mobileOverlayTitle">Controls</h3>
+                            <LayerPanel />
+                            <div className="divider" />
+                            <RepeatPanel />
+                            <div className="divider" />
+                            <PalettePanel />
+                            <div className="divider" />
+                            <RecolorPanel />
+                            <div className="divider" />
+                            <ProductionPanel />
+                            <div className="divider" />
+                            <CleaningPanel />
+                            <div className="divider" />
+                            <CollectionPanel />
+                        </div>
+                    )}
+                </div>
+            )}
         </div>
     );
 }

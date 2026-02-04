@@ -805,3 +805,161 @@ body {
 .processingProgressBar {
   background: var(--accent-primary);
 }
+
+/* ===== Mobile Menu ===== */
+.mobileMenuBtn {
+  display: none;
+  background: none;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+
+.mobileMenuBtn:hover {
+  background: var(--bg-tertiary);
+}
+
+.mobileMenu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 8px;
+  z-index: 300;
+}
+
+.mobileMenu button {
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  text-align: left;
+  background: none;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+
+.mobileMenu button:hover {
+  background: var(--bg-tertiary);
+}
+
+.mobileOverlay {
+  display: none;
+  position: fixed;
+  top: var(--topbar-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg-secondary);
+  z-index: 250;
+  overflow-y: auto;
+  padding: 16px;
+  padding-top: 48px;
+}
+
+.mobileCloseBtn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--bg-tertiary);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobileCloseBtn:hover {
+  background: var(--border-color);
+}
+
+.mobileOverlayContent {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.mobileOverlayTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 768px) {
+  .mobileMenuBtn {
+    display: block;
+  }
+
+  .mobileMenu {
+    display: block;
+  }
+
+  .mobileOverlay {
+    display: block;
+  }
+
+  .leftPanel,
+  .rightPanel {
+    display: none;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .topBar {
+    position: relative;
+  }
+
+  .brand {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .brandTitle {
+    font-size: 0.9rem;
+  }
+
+  .brandSubtitle {
+    font-size: 0.65rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+  }
+
+  .topActions {
+    gap: 6px;
+  }
+
+  .topActions .btn {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+  }
+
+  .autosaveIndicator {
+    display: none;
+  }
+
+  .footer {
+    font-size: 0.65rem;
+    padding: 6px 12px;
+  }
+}
